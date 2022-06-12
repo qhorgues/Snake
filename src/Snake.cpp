@@ -41,19 +41,19 @@ void Snake::move()
 {
 	addOnMove();
 	if (m_reserveMember == 0)
-		m_snake.pop_front();
+		m_snake.pop_back();
 }
 
 void Snake::addOnMove()
 {
-	m_snake.push_back(Point2(m_directionX*m_speed + m_snake.front().x, 
-							m_directionY*m_speed + m_snake.front().y));
+	m_snake.push_back(Point2(m_directionX*m_speed + m_snake.back().x, 
+							m_directionY*m_speed + m_snake.back().y));
 }
 
 void Snake::addOnMoveElement(unsigned int numberElement)
 {
 	addOnMove();
-	m_reserveMember = numberElement-1;
+	m_reserveMember += numberElement-1;
 }
 
 void Snake::setDirection(Snake::direction x, Snake::direction y)
