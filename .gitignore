@@ -45,3 +45,4 @@ Makefile
 Debug
 Release
 *.user
+*.dir
