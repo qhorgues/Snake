@@ -41,7 +41,7 @@ Makefile
 *.filters
 *.sln
 .vs
-.vs-code
+.vscode
 Debug
 Release
 *.user
