@@ -1,0 +1,62 @@
+#ifndef SNAKE_HPP
+#define SNAKE_HPP
+
+#include <list>
+#include <tuple>
+
+struct Point2
+{
+	Point2(int _x, int _y) : x(_x), y(_y)
+	{
+	}
+	
+	int x;
+	int y;
+};
+
+class Snake final // Non héritable
+{
+	
+public:
+	using Point = int;
+	using direction = signed char;
+	
+	Snake() = delete;
+	Snake(Snake::Point posX, Snake::Point posY, unsigned int speed = 1, unsigned int life = 1);
+	~Snake() = default;
+	
+	Snake(Snake const &) = delete;
+	Snake& operator=(Snake const &) = delete;
+	
+	Snake(Snake &&) = delete;
+	Snake& operator=(Snake &&) = delete;
+	
+	void move();
+	void reset(unsigned int speed = 1, unsigned int life = 1) noexcept;
+	void addOnMove();
+	void addOnMoveElement(unsigned int numberElement);
+	void setDirection(Snake::direction x, Snake::direction y);
+	std::tuple<Snake::direction, Snake::direction> getDirection() const noexcept;
+	std::size_t size() const noexcept;
+	
+	// Const iterator
+	using const_iterator = std::list<Point2>::const_iterator;
+	Snake::const_iterator cbegin() const noexcept;
+	Snake::const_iterator cend() const noexcept;
+	
+	// Iterator
+	using iterator = std::list<Point2>::iterator ;
+	Snake::iterator begin() noexcept;
+	Snake::iterator end() noexcept;
+
+private:
+	std::list<Point2> m_snake;
+	Snake::direction m_directionX;
+	Snake::direction m_directionY;
+	unsigned int m_speed;
+	unsigned int m_life;
+	unsigned int m_reserveMember;
+};
+
+
+#endif
