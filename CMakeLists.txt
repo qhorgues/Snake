@@ -14,10 +14,14 @@ snake_set_option(CMAKE_BUILD_TYPE Debug STRING "Choose the type of build (Debug 
 
 set (SOURCES
     src/main.cpp
+    src/Snake.cpp
 )
 
-set (HEADERS
-)
+# set (HEADERS
+#     include/Snake.hpp
+# )
+
+include_directories(include)
 
 set (CMAKE_CXX_STANDARD 17)
 set (CMAKE_CXX_STANDARD_REQUIRED ON)
