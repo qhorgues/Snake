@@ -4,15 +4,6 @@
 #include <list>
 #include <tuple>
 
-struct Point2
-{
-	Point2(int _x, int _y) : x(_x), y(_y)
-	{
-	}
-	
-	int x;
-	int y;
-};
 
 class Snake final // Non héritable
 {
