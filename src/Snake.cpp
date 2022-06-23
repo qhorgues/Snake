@@ -1,4 +1,4 @@
-#include <Snake.hpp>
+#include "../include/Snake.hpp"
 #include <cassert>
 
 Snake::Snake(Snake::Point posX, Snake::Point posY, int speed, int life)
