@@ -18,6 +18,7 @@ set (SOURCES
 
 set (HEADERS
     include/interface.hpp
+    include/GameStatut.hpp
 )
 
 set (CMAKE_CXX_STANDARD 17)
