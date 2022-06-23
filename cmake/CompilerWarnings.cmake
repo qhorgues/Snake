@@ -5,6 +5,15 @@
 # Helper function to enable compiler warnings for a specific target
 function(set_target_warnings target)
     option(WARNINGS_AS_ERRORS "Treat compiler warnings as errors" TRUE)
+    
+    if (${CMAKE_BUILD_TYPE} MATCHES "Debug")
+        if (${CMAKE_SYSTEM_NAME} MATCHES "Linux")
+            set (SANITIZE -fsanitize=address)
+            target_link_libraries(${target} -fsanitize=address)
+        elseif (MSVC)
+            set (SANITIZE /fsanitize=address)
+        endif ()
+    endif ()
 
     set(MSVC_WARNINGS
         /W4 # Baseline reasonable warnings
@@ -28,7 +37,8 @@ function(set_target_warnings target)
         /w14906 # string literal cast to 'LPWSTR'
         /w14928 # illegal copy-initialization; more than one user-defined conversion has been implicitly applied
         /permissive- # standards conformance mode
-
+        ${SANITIZE}
+        
         # Disables, remove when appropriate
         /wd4996 # disable warnings about deprecated functions
         /wd4068 # disable warnings about unknown pragmas (e.g. #pragma GCC)
@@ -53,13 +63,6 @@ function(set_target_warnings target)
         )
     endif()
 
-    
-    if (${CMAKE_SYSTEM_NAME} MATCHES "Linux")
-        if (${CMAKE_BUILD_TYPE} MATCHES "Debug")
-            set (SANITIZE -fsanitize=address)
-            target_link_libraries(${target} -fsanitize=address)
-        endif ()
-    endif ()
 
     set(CLANG_AND_GCC_WARNINGS
         -Wall
