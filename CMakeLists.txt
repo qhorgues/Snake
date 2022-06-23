@@ -18,6 +18,7 @@ set (SOURCES
 
 set (HEADERS
     include/Point2.hpp
+    include/Point.hpp
 )
 
 set (CMAKE_CXX_STANDARD 17)
@@ -26,5 +27,6 @@ set (CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_executable(Snake ${SOURCES} ${HEADERS})
 
-include (cmake/CompilerWarnings.cmake)
+include(${CMAKE_SOURCE_DIR}/cmake/CompilerWarnings.cmake)
+
 set_target_warnings(Snake)
