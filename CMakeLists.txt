@@ -17,6 +17,9 @@ set (SOURCES
 )
 
 set (HEADERS
+    include/interface.hpp
+    include/GameStatut.hpp
+    include/GameMode.hpp
 )
 
 set (CMAKE_CXX_STANDARD 23)
