@@ -4,16 +4,16 @@
 #include <list>
 #include <tuple>
 #include "Point2.hpp"
+#include "Point.hpp"
 
 class Snake final // Non héritable
 {
 	
 public:
-	using Point = int;
 	using direction = signed char;
 	
 	Snake() = delete;
-	Snake(Snake::Point posX, Snake::Point posY, int speed = 1, int life = 1);
+	Snake(Point posX, Point posY, int speed = 1, int life = 1);
 	~Snake() = default;
 	
 	Snake(Snake const &) = delete;

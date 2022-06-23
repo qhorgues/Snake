@@ -1,10 +1,11 @@
 #include "../include/Snake.hpp"
 #include <cassert>
 
-Snake::Snake(Snake::Point posX, Snake::Point posY, int speed, int life)
+Snake::Snake(Point posX, Point posY, int speed, int life)
  : m_snake(), m_directionX(0), m_directionY(0), m_speed(speed), m_life(life), m_reserveMember(0)
 {	
-	m_snake.push_back(static_cast<Point2>(posX, posY));
+	Point2 head {posX, posY};
+	m_snake.push_back(head);
 }
 
 Snake::const_iterator Snake::cbegin() const noexcept
@@ -46,8 +47,8 @@ void Snake::move()
 
 void Snake::addOnMove()
 {
-	m_snake.push_back(Point2(m_directionX*m_speed + m_snake.back().x, 
-							m_directionY*m_speed + m_snake.back().y));
+	Point2 newMember {m_directionX*m_speed + m_snake.back().x, m_directionY*m_speed + m_snake.back().y};
+	m_snake.push_back(newMember);
 }
 
 void Snake::addOnMoveElement(unsigned int numberElement)
