@@ -46,3 +46,5 @@ Debug
 Release
 *.user
 *.dir
+x64
+win32
