@@ -1,12 +1,12 @@
 #ifndef POINT2_HPP
 #define POINT2_HPP
 
+#include "Point.hpp"
+
 struct Point2
 {
-    using point = int;
-
-    Point2::point x;
-    Point2::point y;
+    Point x;
+    Point y;
 };
 
 #endif
