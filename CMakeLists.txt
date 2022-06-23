@@ -14,11 +14,13 @@ snake_set_option(CMAKE_BUILD_TYPE Debug STRING "Choose the type of build (Debug 
 
 set (SOURCES
     src/main.cpp
+    src/Apple.cpp
 )
 
 set (HEADERS
     include/Point2.hpp
     include/Point.hpp
+    include/Apple.hpp
 )
 
 set (CMAKE_CXX_STANDARD 17)
