@@ -19,6 +19,7 @@ set (SOURCES
 
 set (HEADERS
     include/Snake.hpp
+    include/Point2.hpp
 )
 
 
