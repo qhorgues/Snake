@@ -1,7 +1,7 @@
 #include <Snake.hpp>
 #include <cassert>
 
-Snake::Snake(Snake::Point posX, Snake::Point posY, unsigned int speed, unsigned int life)
+Snake::Snake(Snake::Point posX, Snake::Point posY, int speed, int life)
  : m_snake(), m_directionX(0), m_directionY(0), m_speed(speed), m_life(life), m_reserveMember(0)
 {
 	m_snake.push_back(Point2(posX, posY));
@@ -27,7 +27,7 @@ Snake::iterator Snake::end() noexcept
 	return std::end(m_snake);
 }
 
-void Snake::reset(unsigned int speed, unsigned int life) noexcept
+void Snake::reset(int speed, int life) noexcept
 {
 	m_snake.clear();
 	m_directionX = 0;

@@ -22,7 +22,7 @@ public:
 	using direction = signed char;
 	
 	Snake() = delete;
-	Snake(Snake::Point posX, Snake::Point posY, unsigned int speed = 1, unsigned int life = 1);
+	Snake(Snake::Point posX, Snake::Point posY, int speed = 1, int life = 1);
 	~Snake() = default;
 	
 	Snake(Snake const &) = delete;
@@ -32,7 +32,7 @@ public:
 	Snake& operator=(Snake &&) = delete;
 	
 	void move();
-	void reset(unsigned int speed = 1, unsigned int life = 1) noexcept;
+	void reset(int speed = 1, int life = 1) noexcept;
 	void addOnMove();
 	void addOnMoveElement(unsigned int numberElement);
 	void setDirection(Snake::direction x, Snake::direction y);
@@ -53,8 +53,8 @@ private:
 	std::list<Point2> m_snake;
 	Snake::direction m_directionX;
 	Snake::direction m_directionY;
-	unsigned int m_speed;
-	unsigned int m_life;
+	int m_speed;
+	int m_life;
 	unsigned int m_reserveMember;
 };
 
