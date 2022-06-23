@@ -17,6 +17,7 @@ set (SOURCES
 )
 
 set (HEADERS
+    include/GameStatut.hpp
 )
 
 set (CMAKE_CXX_STANDARD 17)
