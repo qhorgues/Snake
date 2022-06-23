@@ -30,7 +30,7 @@
 *.exe
 *.out
 *.app
-
+Snake
 
 # CMake
 CMakeCache.txt
@@ -41,8 +41,10 @@ Makefile
 *.filters
 *.sln
 .vs
-.vs-code
+.vscode
 Debug
 Release
 *.user
 *.dir
+x64
+win32
