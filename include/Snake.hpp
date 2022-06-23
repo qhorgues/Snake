@@ -3,7 +3,7 @@
 
 #include <list>
 #include <tuple>
-
+#include "Point2.hpp"
 
 class Snake final // Non héritable
 {

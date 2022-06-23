@@ -3,8 +3,8 @@
 
 Snake::Snake(Snake::Point posX, Snake::Point posY, int speed, int life)
  : m_snake(), m_directionX(0), m_directionY(0), m_speed(speed), m_life(life), m_reserveMember(0)
-{
-	m_snake.push_back(Point2(posX, posY));
+{	
+	m_snake.push_back(static_cast<Point2>(posX, posY));
 }
 
 Snake::const_iterator Snake::cbegin() const noexcept
