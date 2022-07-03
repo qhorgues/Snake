@@ -6,7 +6,7 @@
 function(set_target_warnings target)
     option(WARNINGS_AS_ERRORS "Treat compiler warnings as errors" TRUE)
     
-    if (${CMAKE_BUILD_TYPE} MATCHES "Debug")
+    if (${CMAKE_BUILD_TYPE} MATCHES "Debug" OR ${CMAKE_BUILD_TYPE} MATCHES "RelWithDebInfo")
         if (${CMAKE_SYSTEM_NAME} MATCHES "Linux")
             set (SANITIZE -fsanitize=address)
             target_link_libraries(${target} -fsanitize=address)
