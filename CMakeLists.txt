@@ -22,5 +22,6 @@ set (CMAKE_CXX_STANDARD_REQUIRED ON)
 
 
 add_executable(Snake ${SOURCES} ${HEADERS})
+add_subdirectory(${CMAKE_SOURCE_DIR}/src/interfaceSFML)
 
 set_target_warnings(Snake)
