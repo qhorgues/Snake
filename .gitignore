@@ -48,3 +48,11 @@ Release
 *.dir
 x64
 win32
+obj
+build
+
+#Shell
+*.ba
+*.sh
+*.cmd
+*.bat
