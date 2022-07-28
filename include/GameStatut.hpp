@@ -3,11 +3,15 @@
 
 #include <cinttypes>
 
-enum GameStatut : std::uint8_t
+namespace Game
 {
-	MAIN_MENU,
-	END_MENU,
-	IN_GAME
+	enum Statut : std::uint8_t
+	{
+		MAIN_MENU,
+		END_MENU,
+		IN_GAME
+	};
 };
+
 
 #endif

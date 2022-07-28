@@ -3,11 +3,14 @@
 
 #include <cinttypes>
 
-enum GameMode : std::uint8_t
+namespace Game
 {
-	SOLO,
-	MULTI,
-	NONE
+	enum Mode : std::uint8_t
+	{
+		SOLO,
+		MULTI,
+		NONE
+	};
 };
 
 #endif
