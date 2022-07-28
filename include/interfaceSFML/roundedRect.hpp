@@ -3,7 +3,9 @@
 
 #include <SFML/Window.hpp>
 
-extern void renderFillRoundedRect(sf::RenderWindow & window, sf::IntRect const & rect, sf::Color const & color, int radius);
-
+namespace SFML
+{
+    extern void renderFillRoundedRect(sf::RenderWindow & window, sf::IntRect const & rect, sf::Color const & color, int radius);
+}
 
 #endif

@@ -1,7 +1,7 @@
 #include <SFML/Graphics.hpp>
-#include "../../include/interfaceSFML/roundedRect.hpp"
+#include "../../include/SFML/roundedRect.hpp"
 
-void renderFillRoundedRect(sf::RenderWindow & window, sf::IntRect const & rect, sf::Color const & color, int const radius)
+void SFML::renderFillRoundedRect(sf::RenderWindow & window, sf::IntRect const & rect, sf::Color const & color, int const radius)
 {
 
     if (radius > 0)

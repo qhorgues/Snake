@@ -3,43 +3,47 @@
 
 #include <SFML/Graphics.hpp>
 
-class TextButton final
+namespace SFML
 {
-public:
-    TextButton() = delete;
-    TextButton(std::string const & text, 
-                        sf::Vector2i const & position,
-                        sf::Vector2i const & size,
-                        sf::Color const & textColor,
-                        sf::Color const & backColor,
-                        sf::Font const & font, 
-                        unsigned int const sizePolice = 30U) ;
 
-    TextButton(TextButton const &) = delete;
-    TextButton& operator=(TextButton const &) = delete;
+    class TextButton final
+    {
+    public:
+        TextButton() = delete;
+        TextButton(std::string const & text, 
+                            sf::Vector2i const & position,
+                            sf::Vector2i const & size,
+                            sf::Color const & textColor,
+                            sf::Color const & backColor,
+                            sf::Font const & font, 
+                            unsigned int const sizePolice = 30U) ;
 
-    TextButton(TextButton &&) = delete;
-    TextButton& operator=(TextButton &&) = delete;
-	
-	~TextButton() = default;
+        TextButton(TextButton const &) = delete;
+        TextButton& operator=(TextButton const &) = delete;
 
-    bool isClick(sf::Vector2i const & point) const noexcept;
-    void draw(sf::RenderWindow & window) const noexcept;
-    void draw(sf::RenderWindow & window, sf::Vector2i const & position) noexcept;
-    void setPosition(sf::Vector2i const & position) noexcept;
+        TextButton(TextButton &&) = delete;
+        TextButton& operator=(TextButton &&) = delete;
+        
+        ~TextButton() = default;
 
-private:
-    double textHeight() const noexcept; 
-    double textWidth() const noexcept; 
-    void allignText() noexcept;
+        bool isClick(sf::Vector2i const & point) const noexcept;
+        void draw(sf::RenderWindow & window) const noexcept;
+        void draw(sf::RenderWindow & window, sf::Vector2i const & position) noexcept;
+        void setPosition(sf::Vector2i const & position) noexcept;
 
-    sf::Text m_textButton;
-    sf::IntRect m_rectText;
-    sf::Color m_textColor;
-    sf::Color m_backColor;
-    sf::Vector2i m_pos;
+    private:
+        double textHeight() const noexcept; 
+        double textWidth() const noexcept; 
+        void allignText() noexcept;
+
+        sf::Text m_textButton;
+        sf::IntRect m_rectText;
+        sf::Color m_textColor;
+        sf::Color m_backColor;
+        sf::Vector2i m_pos;
+    };
+
 };
-
 
 
 #endif

@@ -1,13 +1,13 @@
 #include <SFML/Graphics.hpp>
 #include <string>
 #include <cassert>
-#include "../../include/interfaceSFML/TextButton.hpp"
-#include "../../include/interfaceSFML/roundedRect.hpp"
+#include "../../include/SFML/TextButton.hpp"
+#include "../../include/SFML/roundedRect.hpp"
 
 #define RADIUS 45
 
 
-TextButton::TextButton(std::string const & text, 
+SFML::TextButton::TextButton(std::string const & text, 
                         sf::Vector2i const & position,
                         sf::Vector2i const & size,
                         sf::Color const & textColor,
@@ -26,12 +26,12 @@ TextButton::TextButton(std::string const & text,
     allignText();
 }
 
-bool TextButton::isClick(sf::Vector2i const & point) const noexcept
+bool SFML::TextButton::isClick(sf::Vector2i const & point) const noexcept
 {
     return m_rectText.contains(point);
 }
 
-void TextButton::draw(sf::RenderWindow & window, sf::Vector2i const & position) noexcept
+void SFML::TextButton::draw(sf::RenderWindow & window, sf::Vector2i const & position) noexcept
 {
 	m_rectText.left = position.x;
 	m_rectText.top = position.y;
@@ -40,13 +40,13 @@ void TextButton::draw(sf::RenderWindow & window, sf::Vector2i const & position) 
     window.draw(m_textButton);
 }
 
-void TextButton::draw(sf::RenderWindow & window) const noexcept
+void SFML::TextButton::draw(sf::RenderWindow & window) const noexcept
 {
     renderFillRoundedRect(window, m_rectText, m_backColor, RADIUS);
     window.draw(m_textButton);
 }
 
-void TextButton::setPosition(sf::Vector2i const & position) noexcept
+void SFML::TextButton::setPosition(sf::Vector2i const & position) noexcept
 {
     
     m_rectText.left = position.x;
@@ -54,17 +54,17 @@ void TextButton::setPosition(sf::Vector2i const & position) noexcept
     
 }
 
-double TextButton::textWidth() const noexcept
+double SFML::TextButton::textWidth() const noexcept
 {
     return m_textButton.getGlobalBounds().width/*  * m_textButton.getString().getSize() */;
 }
 
-double TextButton::textHeight() const noexcept
+double SFML::TextButton::textHeight() const noexcept
 {
     return m_textButton.getGlobalBounds().height;
 }
 
-void TextButton::allignText() noexcept
+void SFML::TextButton::allignText() noexcept
 {
     double const width { textWidth() };
     double const height { textHeight() };
