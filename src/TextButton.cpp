@@ -1,8 +1,8 @@
 #include <SFML/Graphics.hpp>
 #include <string>
 #include <cassert>
-#include "../../include/SFML/TextButton.hpp"
-#include "../../include/SFML/roundedRect.hpp"
+#include "../include/TextButton.hpp"
+#include "../include/roundedRect.hpp"
 
 #define RADIUS 45
 
@@ -16,13 +16,13 @@ SFML::TextButton::TextButton(std::string const & text,
                         unsigned int const sizePolice) 
 : m_textButton(text, font, sizePolice), m_rectText(position, size), m_textColor(textColor), m_backColor(backColor)
 {
-    double const width = textWidth();
-    double const height = textHeight();
+    float const width = textWidth();
+    float const height = textHeight();
     m_textButton.setFillColor(textColor);
     assert(width <= size.x && "The width of the button must be greater than or equal to the width taken by the text");
     assert(height <= size.y && "The height of the button must be greater than or equal to the height taken by the text");
 
-    m_textButton.setPosition(sf::Vector2f(m_rectText.left / 2. - width/2. , m_rectText.top / 2. - height/2.));
+    m_textButton.setPosition(sf::Vector2f(static_cast<float>(m_rectText.left) / 2.f - width/2.f , static_cast<float>(m_rectText.top) / 2.f - height/2.f));
     allignText();
 }
 
@@ -54,21 +54,21 @@ void SFML::TextButton::setPosition(sf::Vector2i const & position) noexcept
     
 }
 
-double SFML::TextButton::textWidth() const noexcept
+float SFML::TextButton::textWidth() const noexcept
 {
     return m_textButton.getGlobalBounds().width/*  * m_textButton.getString().getSize() */;
 }
 
-double SFML::TextButton::textHeight() const noexcept
+float SFML::TextButton::textHeight() const noexcept
 {
     return m_textButton.getGlobalBounds().height;
 }
 
 void SFML::TextButton::allignText() noexcept
 {
-    double const width { textWidth() };
-    double const height { textHeight() };
-    double const posX = m_rectText.left + m_rectText.width / 2. - width/2.;
-    double const posY =  m_rectText.top + m_rectText.height / 2. - height/1.2;
+    float const width { textWidth() };
+    float const height { textHeight() };
+    float const posX = static_cast<float>(m_rectText.left) + static_cast<float>(m_rectText.width) / 2.f - static_cast<float>(width)/2.f;
+    float const posY =  static_cast<float>(m_rectText.top) + static_cast<float>(m_rectText.height) / 2.f - static_cast<float>(height)/1.2f;
     m_textButton.setPosition(sf::Vector2f(posX , posY));
 }

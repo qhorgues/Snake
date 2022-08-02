@@ -9,7 +9,7 @@ namespace SFML
     class TextButton final
     {
     public:
-        TextButton() = delete;
+        TextButton() = default;
         TextButton(std::string const & text, 
                             sf::Vector2i const & position,
                             sf::Vector2i const & size,
@@ -32,8 +32,8 @@ namespace SFML
         void setPosition(sf::Vector2i const & position) noexcept;
 
     private:
-        double textHeight() const noexcept; 
-        double textWidth() const noexcept; 
+        float textHeight() const noexcept; 
+        float textWidth() const noexcept; 
         void allignText() noexcept;
 
         sf::Text m_textButton;

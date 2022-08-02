@@ -6,7 +6,8 @@
 #include <array>
 #include <SFML/Graphics.hpp>
 #include "Interface.hpp"
-#include "interfaceSFML/theme.hpp"
+#include "theme.hpp"
+#include "TextButton.hpp"
 
 namespace SFML
 {
@@ -29,17 +30,21 @@ namespace SFML
         std::size_t getSizeSnake() const noexcept override;
         std::size_t getSizeApple() const noexcept override;
 
-    protected:
-
     private:
-        void updateMainMenu() const noexcept;
+        void updateMainMenu() noexcept;
         void setIcon(std::string const & path, unsigned int const size);
         void updateBackground();
 
         sf::RenderWindow m_window;
+
         std::unordered_map<sf::Keyboard::Key, bool> m_touch_press;
+
+        std::unordered_map<std::string, SFML::TextButton> m_button;
+        sf::Font m_font;
+
         std::array<sf::Texture, 2> m_texture_background;
         sf::Sprite m_background;
+
         std::size_t m_sizeSnake;
         std::size_t m_sizeApple;
         SFML::Theme m_theme;
