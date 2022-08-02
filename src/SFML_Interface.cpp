@@ -5,9 +5,9 @@
 #include <stdexcept>
 #include <SFML/Graphics.hpp>
 #include "../include/Interface.hpp"
-#include "../include/theme.hpp"
-#include "../include/TextButton.hpp"
-#include "../include/InterfaceSFML.hpp"
+#include "../include/SFML_theme.hpp"
+#include "../include/SFML_TextButton.hpp"
+#include "../include/SFML_Interface.hpp"
 
 static sf::Color const blue_menu {63, 72, 204};
 

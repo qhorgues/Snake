@@ -1,6 +1,6 @@
 #include <memory>
-#include "../include/InterfaceSFML.hpp"
-#include "../include/TextButton.hpp"
+#include "../include/SFML_Interface.hpp"
+#include "../include/SFML_TextButton.hpp"
 
 int main()
 {
