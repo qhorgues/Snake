@@ -1,11 +1,22 @@
-#include <stdexcept>
-#include "../include/InterfaceSFML.hpp"
 #include <iostream>
+#include <unordered_map>
+#include <string>
+#include <array>
+#include <stdexcept>
+#include <SFML/Graphics.hpp>
+#include "../include/Interface.hpp"
+#include "../include/theme.hpp"
+#include "../include/TextButton.hpp"
+#include "../include/InterfaceSFML.hpp"
+
+static sf::Color const blue_menu {63, 72, 204};
 
 SFML::Interface::Interface()
 : ::Interface(),
 m_window(sf::VideoMode(1200, 675), "Snake"), 
 m_touch_press(),
+m_button(),
+m_font(),
 m_texture_background(),
 m_background(),
 m_theme(SFML::Theme::BLACK)
@@ -14,6 +25,7 @@ m_theme(SFML::Theme::BLACK)
 	m_texture_background[1].loadFromFile("./assets/sand.png");
 	updateBackground();
 	setIcon("./assets/Snake.png", 256);
+	m_font.loadFromFile("./assets/Arial.ttf");
 }
 
 bool SFML::Interface::isRunning() const noexcept
@@ -51,10 +63,13 @@ void SFML::Interface::update(Game::Statut const statut, [[maybe_unused]]Game::Mo
 	m_window.clear();
 	if (statut == Game::Statut::IN_GAME)
 	{
-		
+		m_window.draw(m_background);
+	}
+	else if (statut == Game::Statut::MAIN_MENU)
+	{
+		updateMainMenu();
 	}
 
-	m_window.draw(m_background);
 	m_window.display();
 }
 
@@ -95,4 +110,23 @@ void SFML::Interface::updateBackground()
 	float const factorY { static_cast<float>(heightWindow) / rectSprite.height };
 
 	m_background.scale(sf::Vector2f(factorX, factorY));
+}
+
+void SFML::Interface::updateMainMenu() noexcept
+{
+	std::array<sf::Color, 2> const tabColor { sf::Color::Black, sf::Color::White };
+	m_window.clear(tabColor[m_theme]);
+	sf::Vector2u const windowSize { m_window.getSize() };
+	sf::Vector2i const buttonSize { static_cast<int>(windowSize.x)/3, static_cast<int>(windowSize.y)/3 };
+	std::array<std::string, 3> listButton {"Solo", "Multiplayer", "Quit"};
+
+	for (std::size_t i { 0 }; i < std::size(listButton); i++)
+	{
+		if (!m_button.contains(listButton[i]))
+		{
+			sf::Vector2i const positionButton { static_cast<int>(windowSize.x)/3 - buttonSize.x/3, (static_cast<int>(windowSize.y)/3) * (i+1)  - buttonSize.y/3 };
+			m_button.insert_or_assign( listButton[i], SFML::TextButton{listButton[i],positionButton, buttonSize, sf::Color::White, blue_menu, m_font, windowSize.x/40} );
+		}
+		m_button[listButton[i]].draw(m_window);
+	}
 }
