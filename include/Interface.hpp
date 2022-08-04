@@ -3,6 +3,7 @@
 
 #include "GameMode.hpp"
 #include "GameStatut.hpp"
+#include "GameEvent.hpp"
 
 #include <string>
 
@@ -20,7 +21,7 @@ public:
     Interface& operator=(Interface &&) = delete;
 
     virtual void getEvent(Game::Statut & statut, Game::Mode & mode) noexcept = 0;
-    virtual void update(Game::Statut const statut, Game::Mode const mode) = 0;
+    virtual void update(Game::Statut const statut, Game::Mode const mode, Game::Event const event) = 0;
     virtual bool isRunning() const = 0;
     virtual std::size_t getSizeSnake() const noexcept = 0;
     virtual std::size_t getSizeApple() const noexcept = 0;
