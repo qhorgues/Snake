@@ -16,13 +16,13 @@ namespace SFML
                             sf::Color const & textColor,
                             sf::Color const & backColor,
                             sf::Font const & font, 
-                            unsigned int const sizePolice = 30U) ;
+                            unsigned int const sizePolice = 30U);
 
-        TextButton(TextButton const &) = delete;
-        TextButton& operator=(TextButton const &) = delete;
+        TextButton(TextButton const &) = default;
+        TextButton& operator=(TextButton const &) = default;
 
-        TextButton(TextButton &&) = delete;
-        TextButton& operator=(TextButton &&) = delete;
+        TextButton(TextButton &&) = default;
+        TextButton& operator=(TextButton &&) = default;
         
         ~TextButton() = default;
 
@@ -43,7 +43,7 @@ namespace SFML
         sf::Vector2i m_pos;
     };
 
-};
+}
 
 
 #endif
