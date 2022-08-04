@@ -6,8 +6,8 @@
 #include <array>
 #include <SFML/Graphics.hpp>
 #include "Interface.hpp"
-#include "theme.hpp"
-#include "TextButton.hpp"
+#include "SFML_theme.hpp"
+#include "SFML_Menu.hpp"
 
 namespace SFML
 {
@@ -15,7 +15,7 @@ namespace SFML
     {
     public:
         Interface();
-        ~Interface() = default;
+        ~Interface() noexcept override = default;
         
         Interface(Interface const &) = delete; // On supprime le constructeur par copie
         Interface& operator=(Interface const &) = delete; // On supprime l'afféctation par copie
@@ -24,14 +24,13 @@ namespace SFML
         Interface& operator=(Interface &&) = delete; // On supprime l'afféctation par déplacement
 
         void getEvent(Game::Statut & statut, Game::Mode & mode) noexcept override;
-        void update(Game::Statut const statut, Game::Mode const mode) override;
+        void update(Game::Statut const statut, Game::Mode const mode, Game::Event const event) override;
         bool isRunning() const noexcept override;
 
         std::size_t getSizeSnake() const noexcept override;
         std::size_t getSizeApple() const noexcept override;
 
     private:
-        void updateMainMenu() noexcept;
         void setIcon(std::string const & path, unsigned int const size);
         void updateBackground();
 
@@ -39,8 +38,7 @@ namespace SFML
 
         std::unordered_map<sf::Keyboard::Key, bool> m_touch_press;
 
-        std::unordered_map<std::string, SFML::TextButton> m_button;
-        sf::Font m_font;
+        std::unique_ptr<SFML::Menu> m_menu;
 
         std::array<sf::Texture, 2> m_texture_background;
         sf::Sprite m_background;
@@ -50,7 +48,7 @@ namespace SFML
         SFML::Theme m_theme;
     };
 
-};
+}
 
 
 
