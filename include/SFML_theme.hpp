@@ -3,11 +3,11 @@
 
 namespace SFML
 {
-	enum Theme : bool
+	enum Theme
 	{
 		BLACK,
 		WHITE
 	};
-};
+}
 
 #endif
