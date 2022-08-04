@@ -1,16 +1,14 @@
 #ifndef GAME_MODE_HPP
 #define GAME_MODE_HPP
 
-#include <cinttypes>
-
 namespace Game
 {
-	enum Mode : std::uint8_t
+	enum Mode
 	{
 		SOLO,
 		MULTI,
-		NONE
+		NO_MODE
 	};
-};
+}
 
 #endif
