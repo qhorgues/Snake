@@ -4,7 +4,7 @@
 #include "../TextButton/TextButton.hpp"
 #include "../RoundedRect/RoundedRect.hpp"
 
-#define RADIUS 45
+constexpr int const radius { 45 };
 
 
 SFML::TextButton::TextButton(std::string const & text, 
@@ -16,6 +16,7 @@ SFML::TextButton::TextButton(std::string const & text,
                         unsigned int const sizePolice) 
 : m_textButton(text, font, sizePolice), m_rectText(position, size), m_textColor(textColor), m_backColor(backColor)
 {
+    assert(sizePolice > 0 && "The size of text is necessary greater than 0");
     float const width = textWidth();
     float const height = textHeight();
     m_textButton.setFillColor(textColor);
@@ -36,13 +37,13 @@ void SFML::TextButton::draw(sf::RenderWindow & window, sf::Vector2i const & posi
 	m_rectText.left = position.x;
 	m_rectText.top = position.y;
     allignText();
-    renderFillRoundedRect(window, m_rectText, m_backColor, RADIUS);
+    renderFillRoundedRect(window, m_rectText, m_backColor, radius);
     window.draw(m_textButton);
 }
 
 void SFML::TextButton::draw(sf::RenderWindow & window) const noexcept
 {
-    renderFillRoundedRect(window, m_rectText, m_backColor, RADIUS);
+    renderFillRoundedRect(window, m_rectText, m_backColor, radius);
     window.draw(m_textButton);
 }
 
