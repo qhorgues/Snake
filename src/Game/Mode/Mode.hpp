@@ -3,7 +3,7 @@
 
 namespace Game
 {
-	enum Mode
+	enum class Mode
 	{
 		SOLO,
 		MULTI,

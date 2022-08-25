@@ -1,6 +1,6 @@
 #include <array>
 #include <stdexcept>
-#include "../include/SFML_Menu.hpp"
+#include "Menu.hpp"
 
 namespace SFML
 {
@@ -21,7 +21,7 @@ namespace SFML
         m_button = createMap(window, font, list_button);
     }
 
-    Menu::mapButton &&Menu::createMap(sf::RenderWindow const &window, sf::Font const &font, std::initializer_list<std::string> const &list_button)
+    Menu::mapButton Menu::createMap(sf::RenderWindow const &window, sf::Font const &font, std::initializer_list<std::string> const &list_button)
     {
         mapButton button;
         sf::Vector2u const windowSize{window.getSize()};
@@ -37,7 +37,7 @@ namespace SFML
                 index++;
             }
         }
-        return std::move(button);
+        return button;
     }
 
     void Menu::drawButton(sf::RenderWindow &window, std::string const &name_button) const

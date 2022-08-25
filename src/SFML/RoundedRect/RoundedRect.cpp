@@ -1,5 +1,5 @@
 #include <SFML/Graphics.hpp>
-#include "../include/SFML_roundedRect.hpp"
+#include "RoundedRect.hpp"
 
 void SFML::renderFillRoundedRect(sf::RenderWindow & window, sf::IntRect const & rect, sf::Color const & color, int const radius)
 {

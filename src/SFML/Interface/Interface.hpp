@@ -5,12 +5,13 @@
 #include <string>
 #include <array>
 #include <SFML/Graphics.hpp>
-#include "Interface.hpp"
-#include "SFML_theme.hpp"
-#include "SFML_Menu.hpp"
+#include "../../Interface.hpp"
+#include "../Menu/Menu.hpp"
 
 namespace SFML
 {
+    enum class Theme;
+
     class Interface final : public ::Interface
     {
     public:

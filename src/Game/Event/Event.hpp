@@ -3,7 +3,7 @@
 
 namespace Game
 {
-    enum Event
+    enum class Event
     {
         NO_EVENT,
         PLAYER_1_WIN,

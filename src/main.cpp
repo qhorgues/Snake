@@ -1,8 +1,8 @@
 #include <memory>
-#include "../include/SFML_Interface.hpp"
-#include "../include/SFML_TextButton.hpp"
-
-#include "../include/SFML_Menu.hpp"
+#include "SFML/Interface/Interface.hpp"
+#include "Game/Event/Event.hpp"
+#include "Game/Mode/Mode.hpp"
+#include "Game/Statut/Statut.hpp"
 
 int main()
 {

@@ -4,12 +4,11 @@
 #include <stdexcept>
 #include <memory>
 #include <SFML/Graphics.hpp>
-#include "../include/Interface.hpp"
-#include "../include/SFML_theme.hpp"
-#include "../include/SFML_TextButton.hpp"
-#include "../include/SFML_Interface.hpp"
-#include "../include/SFML_Menu.HPP"
-#include "../include/SFML_MainMenu.hpp"
+#include "Interface.hpp"
+#include "../Theme/Theme.hpp"
+#include "../TextButton/TextButton.hpp"
+#include "../Menu/Menu.hpp"
+#include "../MainMenu/MainMenu.hpp"
 
 namespace SFML
 {
@@ -110,7 +109,7 @@ namespace SFML
 
 		sf::IntRect const rectWindow{origin, sizeWindow};
 
-		m_background.setTexture(m_texture_background[m_theme]);
+		m_background.setTexture(m_texture_background[static_cast<size_t>(m_theme)]);
 		sf::FloatRect const rectSprite{m_background.getGlobalBounds()};
 
 		float const factorX{static_cast<float>(widthWindow) / rectSprite.width};

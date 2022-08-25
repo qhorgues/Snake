@@ -3,7 +3,7 @@
 
 namespace SFML
 {
-	enum Theme
+	enum class Theme
 	{
 		BLACK,
 		WHITE

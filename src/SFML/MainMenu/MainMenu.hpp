@@ -1,17 +1,23 @@
 #ifndef SFML_MAIN_MENU_HPP
 #define SFML_MAIN_MENU_HPP
 
-#include "SFML_Menu.hpp"
-#include "SFML_theme.hpp"
+#include "../Menu/Menu.hpp"
+#include "../Theme/Theme.hpp"
+#include "../../Game/Mode/Mode.hpp"
+#include "../../Game/Statut/Statut.hpp"
+#include "../../Game/Event/Event.hpp"
+
 
 namespace SFML
 {
-    class MainMenu : public SFML::Menu
+    enum class Theme;
+
+    class MainMenu final : public Menu
     {
     public:
         MainMenu() = delete;
         MainMenu(sf::RenderWindow const & window);
-        ~MainMenu() noexcept override = default;
+        ~MainMenu() noexcept = default;
 
         MainMenu(MainMenu const &) = delete;
         MainMenu & operator=(MainMenu const &) = delete;

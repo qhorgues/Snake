@@ -3,7 +3,7 @@
 
 namespace Game
 {
-	enum Statut
+	enum class Statut
 	{
 		MAIN_MENU,
 		END_MENU,

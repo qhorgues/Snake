@@ -3,11 +3,11 @@
 
 #include <unordered_map>
 #include <SFML/Graphics.hpp>
-#include "GameMode.hpp"
-#include "GameStatut.hpp"
-#include "GameEvent.hpp"
-#include "SFML_theme.hpp"
-#include "SFML_TextButton.hpp"
+#include "../../Game/Mode/Mode.hpp"
+#include "../../Game/Statut/Statut.hpp"
+#include "../../Game/Event/Event.hpp"
+#include "../Theme/Theme.hpp"
+#include "../TextButton/TextButton.hpp"
 
 namespace SFML
 {
@@ -32,7 +32,7 @@ namespace SFML
 
     private:
         using mapButton = std::unordered_map<std::string, SFML::TextButton>;
-        static mapButton && createMap(sf::RenderWindow const & window, sf::Font const & font, std::initializer_list<std::string> const & list_button);
+        static mapButton createMap(sf::RenderWindow const & window, sf::Font const & font, std::initializer_list<std::string> const & list_button);
 
         mapButton m_button;
     };

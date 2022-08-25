@@ -1,8 +1,8 @@
 #include <SFML/Graphics.hpp>
 #include <string>
 #include <cassert>
-#include "../include/SFML_TextButton.hpp"
-#include "../include/SFML_roundedRect.hpp"
+#include "../TextButton/TextButton.hpp"
+#include "../RoundedRect/RoundedRect.hpp"
 
 #define RADIUS 45
 

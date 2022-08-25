@@ -1,5 +1,6 @@
 #include <SFML/Graphics.hpp>
-#include "../include/SFML_MainMenu.hpp"
+#include "MainMenu.hpp"
+#include "../Menu/Menu.hpp"
 
 namespace SFML
 {

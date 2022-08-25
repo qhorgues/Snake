@@ -1,13 +1,16 @@
 #ifndef INTERFACE_HPP
 #define INTERFACE_HPP
 
-#include "GameMode.hpp"
-#include "GameStatut.hpp"
-#include "GameEvent.hpp"
-
 #include <string>
 
 // Vituel pure class modèle
+
+namespace Game
+{
+    enum class Statut;
+    enum class Mode;
+    enum class Event;
+}
 
 class Interface
 {
