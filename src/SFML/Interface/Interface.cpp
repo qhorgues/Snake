@@ -72,8 +72,9 @@ namespace SFML
 			if (m_menu == nullptr)
 			{
 
-				std::unique_ptr<SFML::Menu> tmp_ptr_menu { std::make_unique<SFML::MainMenu>(m_window) };
+				m_menu = std::make_unique<SFML::MainMenu>(m_window);
 			}
+			m_menu->update(m_window, event);
 		}
 
 		m_window.display();
