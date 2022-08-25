@@ -28,6 +28,14 @@ set (HEADERS
     src/Interface.hpp
 )
 
+set (ASSETS
+    assets/arial.ttf
+    assets/forest.png
+    assets/imprisha.ttf
+    assets/sand.png
+    assets/Snake.png
+)
+
 set (CMAKE_CXX_STANDARD 17)
 set (CMAKE_CXX_STANDARD_REQUIRED ON)
 
@@ -55,6 +63,10 @@ set_target_warnings(Snake)
 
 install(TARGETS Snake DESTINATION .)
 install(DIRECTORY assets/ DESTINATION assets)
+
+foreach(df ${ASSETS})
+    file(COPY ${df} DESTINATION ${CMAKE_BINARY_DIR}/assets)
+endforeach()
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
