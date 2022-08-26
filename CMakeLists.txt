@@ -11,14 +11,10 @@ include(${CMAKE_SOURCE_DIR}/cmake/CompilerWarnings.cmake)
 set_choice(CMAKE_BUILD_TYPE "Debug;Release;MinSizeRel;RelWithDebInfo" "Debug" "Choose the type of build.")
 
 ## If you want to link SFML statically
-#set(SFML_STATIC_LIBRARIES TRUE)
+set(SFML_STATIC_LIBRARIES TRUE)
 
-if (${CMAKE_SYSTEM_NAME} MATCHES "Windows")
-    set_option(SFML_DIR "/path/to/SFML/lib" PATH "Enter path to object SFML path")
-    set (SFML_DIR "${SFML_DIR}/cmake/SFML")
-endif()
 
-find_package(SFML 2.5 COMPONENTS graphics REQUIRED)
+find_package(SFML 2.5 COMPONENTS system window graphics REQUIRED)
 
 set (SOURCES
     src/main.cpp
@@ -51,7 +47,7 @@ add_subdirectory(src/Game)
 add_subdirectory(src/SFML)
 
 add_executable(Snake ${SOURCES} ${HEADERS})
-target_link_libraries(Snake PRIVATE sfml-graphics Game SFML_Interface)
+target_link_libraries(Snake PRIVATE sfml-system sfml-window sfml-graphics Game SFML_Interface)
 
 target_include_directories(Snake PUBLIC
                           "${PROJECT_BINARY_DIR}"

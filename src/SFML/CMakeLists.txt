@@ -11,14 +11,10 @@ include(${CMAKE_SOURCE_DIR}/cmake/CompilerWarnings.cmake)
 set_choice(CMAKE_BUILD_TYPE "Debug;Release;MinSizeRel;RelWithDebInfo" "Debug" "Choose the type of build.")
 
 ## If you want to link SFML statically
-#set(SFML_STATIC_LIBRARIES TRUE)
+set(SFML_STATIC_LIBRARIES TRUE)
 
-if (${CMAKE_SYSTEM_NAME} MATCHES "Windows")
-    set_option(SFML_DIR "/path/to/SFML/lib" PATH "Enter path to object SFML path")
-    set (SFML_DIR "${SFML_DIR}/cmake/SFML")
-endif()
 
-find_package(SFML 2.5 COMPONENTS graphics REQUIRED)
+find_package(SFML 2.5 COMPONENTS system window graphics REQUIRED)
 
 set (SOURCES
     Interface/Interface.cpp
@@ -49,6 +45,6 @@ if (MINGW)
 endif (MINGW)
 
 add_library(${PROJECT_NAME} ${SOURCES} ${HEADERS})
-target_link_libraries(${PROJECT_NAME} sfml-graphics)
+target_link_libraries(${PROJECT_NAME} PRIVATE sfml-system sfml-window sfml-graphics)
 
 set_target_warnings(${PROJECT_NAME})
