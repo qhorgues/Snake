@@ -10,9 +10,6 @@ include(${CMAKE_SOURCE_DIR}/cmake/CompilerWarnings.cmake)
 
 set_choice(CMAKE_BUILD_TYPE "Debug;Release;MinSizeRel;RelWithDebInfo" "Debug" "Choose the type of build.")
 
-## If you want to link SFML statically
-set(SFML_STATIC_LIBRARIES TRUE)
-
 
 find_package(SFML 2.5 COMPONENTS system window graphics REQUIRED)
 
